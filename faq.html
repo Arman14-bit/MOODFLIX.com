@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <title>MOODFLIX FAQ</title>
+  
+  <style>
+  
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  
+  body{
+    height: 100%;
+    width: 100%;
+    font-family: "Roboto slab", serif;    
+  }
+  
+  .top{
+    position: absolute;
+    background: whitesmoke;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 0 5px black;
+  }
+  
+   .logo4{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 5px;
+    top: 5px;
+    border-radius: 50%;
+  }
+  
+  p1{
+    position: absolute;
+    top: 13px;
+    left: 50px;
+    font-size: 18px;
+    font-family: "Days one", sans-serif;
+    color: #4FBDBA;
+  }
+  
+  .try{
+    position: absolute;
+    left: 222px;
+    top: 15px;
+    color: #BCBCBC;
+    text-decoration: none;
+    font-family: "Roboto slab", serif;
+    font-size: 15px;
+  }
+  
+  .try:hover{
+    cursor: pointer;
+  }
+  
+  .about4{
+    position: absolute;
+    left: 300px;
+    top: 15px;
+    color: #BCBCBC;
+    text-decoration: none;
+    font-family: "Roboto slab", serif;
+    font-size: 15px;
+  }
+  
+  .about4:hover{
+    cursor: pointer;
+  }
+  
+  h1{
+    position: absolute;
+    top: 90px;
+    left: 35px;
+    font-size: 18px;
+    font-family: "Days one", sans-serif;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideup 1s forwards;
+  }
+  
+  h2{
+    position: absolute;
+    top: 90px;
+    left: 100px;
+    font-size: 18px;
+    font-family: "Days one", sans-serif;
+    color: #A593E0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideup 1.5s forwards;
+  }
+  
+  h3{
+    position: absolute;
+    top: 115px;
+    left: 115px;
+    font-size: 20px;
+    font-family: "Days one", sans-serif;
+    color: #A593E0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideup 2s forwards;
+  }
+  
+  @keyframes slideup{
+    to{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .line{
+    position: absolute;
+    height: 2px;
+    width: 280px;
+    background: #5F4B8B;
+    top: 150px;
+    left: 35px;
+    border-radius: 15px;
+    box-shadow: 0 2px 2px #5F4B8B;
+  }
+  
+  .faq-container {
+      max-width: 900px;
+      margin: 50px auto;
+      position: absolute;
+      top: 110px;
+      padding: 20px;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideup 2s forwards;
+    }
+
+    details {
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      background: #fafafa;
+       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    summary {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4FBDBA;
+      cursor: pointer;
+      outline: none;
+    }
+
+    p{
+      margin-top: 10px;
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+   
+  </style>
+  
+  <div class="top">
+    <div class="top">
+    <img class="logo4" src="logo.jpg">
+    <p1>MOODFLIX.com</p1>
+  </div>
+  <a class="try" href="index.html">TRY NOW</a>
+  <a class="about4" href="about.html">ABOUT</a>
+  
+    <h1>FAQ -</h1>
+    <h2>FREQUENTLY ASKED</h2>
+    <h3>QUESTION</h3>
+    <div class="line"></div>
+   
+    <div class="faq-container">
+      
+    <details>
+      <summary>What is MoodFlix?</summary>
+      <p>MoodFlix is a movie recommendation platform that suggests movies based on your current mood like happy, sad, romantic, scared, or bored.</p>
+    </details>
+
+    <details>
+      <summary>How do I get a movie suggestion?</summary>
+      <p>Select your mood from the homepage, and MoodFlix will instantly show you a movie that matches how you're feeling with poster, description, and trailer.</p>
+    </details>
+
+    <details>
+      <summary>Will I get different movies if I click again?</summary>
+      <p>Yes! Each time you click your mood, you may get a different movie recommendation so you can explore more options.</p>
+    </details>
+
+    <details>
+      <summary>Can I watch the full movie here?</summary>
+      <p>No, MoodFlix only provides trailers and descriptions. It does not host or stream full movies. However, it helps you discover what to watch next.</p>
+    </details>
+
+    <details>
+      <summary>Do I need to create an account to use MoodFlix?</summary>
+      <p>No account is needed. MoodFlix works instantly just pick your mood and get movie suggestions right away.</p>
+    </details>
+
+    <details>
+      <summary>Where do the trailers come from?</summary>
+      <p>MoodFlix uses official trailers hosted on YouTube. Clicking the "Watch Trailer" button opens the video in a new tab.</p>
+    </details>
+
+    <details>
+      <summary>How does MoodFlix decide which movie to show?</summary>
+      <p>Movies are selected randomly from a mood-based list curated manually. Each mood has a set of films tailored to match its vibe.</p>
+    </details>
+    </div>
+</body>
+</html>
+ 

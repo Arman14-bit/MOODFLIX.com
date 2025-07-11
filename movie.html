@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/2b42ec6388.js" crossorigin="anonymous"></script>
+  <title>MOODFLIX</title>
+</head>
+<body>
+
+  <style>
+  
+   *{
+    margin: 0;
+    padding: 0;
+   }
+  
+    body {
+      background: #5F4B8B;
+      font-family: "Days one", sans-serif;
+      height: 100%;
+      width: 100%;
+    }
+  
+  .top{
+    background-color: whitesmoke;
+    height: 50px;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    text-align: left;
+    box-shadow: 0 0 10px black;
+  }
+  
+  .logo2{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 7px;
+    top: 5px;
+    border-radius: 50%;
+  }
+  
+  p1{
+    position: absolute;
+    top: 13px;
+    left: 50px;
+    font-size: 20px;
+    color: #4FBDBA;
+  }
+  
+  h1{
+    position: absolute;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    left: 30px;
+    top: 90px;
+  }
+  
+   p2{
+    position: absolute;
+    top: 90px;
+    left: 230px;
+    color: #A593E0;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  
+    #poster {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px black;
+    }
+  
+    #container {
+      position: absolute;
+      margin-top: 130px;
+      text-align: center;
+    }
+  
+    .btn {
+      padding: 12px 25px;
+      background-color: #4FBDBA;
+      color: white;
+      border: none;
+      width: 280px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 30px;
+    }
+  
+  p5{
+    position: absolute;
+    top: 100%;
+    left: 110px;
+    font-size: 10px;
+  }
+  
+   .about2{
+    position: absolute;
+    left: 250px;
+    top: 15px;
+    color: #BCBCBC;
+    text-decoration: none;
+    font-family: "Roboto slab", serif;
+    font-size: 15px;
+  }
+  
+  .about2:hover{
+    cursor: pointer;
+  }
+  
+  .faq2{
+    position: absolute;
+    left: 315px;
+    top: 15px;
+    color: #BCBCBC;
+    text-decoration: none;
+    font-family: "Roboto slab", serif;
+    font-size: 15px;
+  }
+  
+  .faq2:hover{
+    cursor: pointer;
+  }
+  
+  </style>
+
+  <div class="top">
+    <img class="logo2" src="logo.jpg">
+    <p1>MOODFLIX.com</p1>
+    <a class="about2" href="about.html">ABOUT</a>
+    <a class="faq2" href="faq.html">FAQ</a>
+  </div>
+  
+  <h1>HERE'S YOUR</h1>
+  <p2>MOVIE</p2>
+
+  <div id="container">
+    <img id="poster" src="" alt="Movie Poster">
+    <h2 id="title" style="font-weight: bold; font-family: Roboto slab, serif; margin-top: 10px; " >Movie Title</h2>
+    <p3 id="overview" style="margin-top: 15px; font-family: Roboto slab, serif; ">Movie overview will appear here.</p3>
+    <a id="trailer"  style="box-shadow: 0 0 5px black;" class="btn" target="_blank">🎥 WATCH TRAILER</a>
+    <p5>MADE WITH ♥ BY ARMAN</p5>
+  </div> 
+ 
+  
+  <script>
+  
+    const apiKey = '58eefd8797f59e952ab19a7abed9fd52'; // Replace with your actual TMDB API key
+    const genreMap = {
+      happy: 35,        
+      sad: 18,        
+      romantic: 10749,  
+      scary: 27,       
+      bored: 28        
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const mood = urlParams.get('mood');
+
+    async function getRandomMovieByMood(mood) {
+      const genreId = genreMap[mood] || 35;
+
+      const page = Math.floor(Math.random() * 10) + 1; 
+      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&sort_by=popularity.desc&page=${page}`;
+
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const movies = data.results;
+      const randomMovie = movies[Math.floor(Math.random() * movies.length)];
+
+      const trailerRes = await fetch(`https://api.themoviedb.org/3/movie/${randomMovie.id}/videos?api_key=${apiKey}`);
+      const trailerData = await trailerRes.json();
+      const youtube = trailerData.results.find(v => v.type === "Trailer" && v.site === "YouTube");
+
+      document.getElementById("poster").src = "https://image.tmdb.org/t/p/w500" + randomMovie.poster_path;
+      document.getElementById("title").innerText = randomMovie.title;
+      document.getElementById("overview").innerText = randomMovie.overview;
+      document.getElementById("trailer").href = youtube ? `https://www.youtube.com/watch?v=${youtube.key}` : "#";
+    }
+
+    if (mood) {
+      getRandomMovieByMood(mood);
+    } else {
+      document.getElementById("container").innerHTML = '<p>No mood selected.</p>';
+    }
+
+  </script>
+</body>
+</html>
